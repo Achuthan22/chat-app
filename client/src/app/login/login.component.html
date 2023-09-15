@@ -1,0 +1,45 @@
+<div class="main-container">
+  <div class="input-container">
+    <div class="product-logo-container">
+      <img
+        src="assets/images/product-logo.png"
+        alt="product logo"
+        height="100"
+      />
+    </div>
+    <div class="vertical-line"></div>
+    <div class="header-text">Sign In</div>
+    <form [formGroup]="loginform" (ngSubmit)="loginFormSubmit()">
+      <div>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>User ID</mat-label>
+          <input matInput formControlName="UserID" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="showPassword ? 'password' : 'text'"
+            formControlName="Password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="showPassword = !showPassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="showPassword"
+          >
+            <mat-icon>
+              {{ showPassword ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="login-btn-container">
+        <button type="submit" class="login-btn">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
